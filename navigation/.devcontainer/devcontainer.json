@@ -1,0 +1,18 @@
+{
+  "name": "ROS2 Navigation Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "bash"
+  },
+  "extensions": [
+    "ms-vscode.cpptools",
+    "ms-python.python"
+  ],
+  "postCreateCommand": "source /opt/ros/humble/setup.bash && colcon build --symlink-install || true",
+  "remoteUser": "root",
+  "mounts": [
+    "source=${localWorkspaceFolder}/navigation/nav2_ws,target=/workspace/nav2_ws,type=bind"
+  ]
+}
